@@ -3,6 +3,7 @@ package Model;
 import Contract.Status;
 
 import java.util.Random;
+import java.util.concurrent.TimeUnit;
 
 public class GameOfLife {
     public static void main(String[] args){
@@ -22,11 +23,16 @@ public class GameOfLife {
             system.setStatusToBegin(Status.ALIVE, widthToBegin,heightToBegin);
         }
 
-        for (int j =0; j<10; j++){
+        for (int j =0; j<100; j++){
             manager.print();
             system.checkAliveCell(manager);
             system.checkStatus();
             system.sendStatus(manager);
+            try {
+                TimeUnit.SECONDS.sleep(5);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
 
         }
 

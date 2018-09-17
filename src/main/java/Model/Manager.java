@@ -28,7 +28,7 @@ public class Manager {
 
     public void print(){
         java.lang.System.out.print(" ");
-        for(int i =0; i<width;i++) {
+        for(int i =0; i<width*2;i++) {
             java.lang.System.out.print("-");
         }
         java.lang.System.out.println(" ");
@@ -37,9 +37,9 @@ public class Manager {
             java.lang.System.out.print("|");
             for(int i =0;i<width; i++){
                 if(status[i][j]==Status.DEAD){
-                    java.lang.System.out.print(" ");
+                    java.lang.System.out.print("O"+" ");
                 }else{
-                    java.lang.System.out.print("X");
+                    java.lang.System.out.print("X"+" ");
                 }
 
             }
@@ -47,10 +47,11 @@ public class Manager {
         }
 
         java.lang.System.out.print(" ");
-        for(int i =0; i<width;i++) {
+        for(int i =0; i<width*2;i++) {
             java.lang.System.out.print("-");
         }
         java.lang.System.out.print(" ");
+        java.lang.System.out.println(" ");
     }
 
 }

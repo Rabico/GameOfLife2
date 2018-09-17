@@ -3,13 +3,29 @@ package Contract;
 import Model.Manager;
 
 public abstract class Cell {
-    private Status status;
-    private int width;
-    private int height;
-    private boolean hasItChanged = false;
-    private int numberOfAliveCell = 0;
+    Status status; // Cell condition
+    protected int width; // Width of cell
+    protected int height; // Height of cell
+    protected boolean hasItChanged = false; // parameter about cell condition change
+    protected int numberOfAliveCell = 0; // Number of alive neighbors
+
+    public Cell(int width, int height){
+        this.height = height;
+        this.width = width;
+    }
+
+
+    // Method to find number of alive neighbors
     public void checkAliveCell(Manager manager){}
+
+    public int getNumberOfAliveCell(){
+        return numberOfAliveCell;
+    }
+
+    //Method for changing status
     public void checkStatus(){
+
+
 
         if(status==Status.ALIVE){
         if(numberOfAliveCell==2 || numberOfAliveCell==3){
@@ -26,18 +42,16 @@ public abstract class Cell {
     numberOfAliveCell = 0;
 
     }
+
+    // Method for sending information about status change
     public void sendStatus(Manager manager){
         if(hasItChanged){
             manager.setStatus(status,width,height);
         hasItChanged = false;
         }
     }
-    Status getStatus() {return status;}
 
-    public Cell(int width, int height){
-        this.height = height;
-        this.width = width;
-    }
+
 
     public void setStatus(Status status){
         this.status = status;

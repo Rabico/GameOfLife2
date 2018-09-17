@@ -7,7 +7,7 @@ import Contract.Status;
 public class System {
     private int height;
     private int width;
-    private Cell[][] system;
+    protected Cell[][] system;
     CellFactory cellFactory;
     System(int width, int height){
         this.height = height;
@@ -48,6 +48,7 @@ public class System {
         }
     }
 
+    // Method to find number of alive neighbors for all cells
 public void checkAliveCell(Manager manager){
         for(int i=0; i<width;i++){
             for (int j=0; j<height; j++){
@@ -55,7 +56,7 @@ public void checkAliveCell(Manager manager){
             }
         }
 }
-
+    //Method for changing status of all cells
     public void checkStatus(){
         for(int i=0; i<width;i++){
             for (int j=0; j<height; j++){

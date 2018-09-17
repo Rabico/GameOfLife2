@@ -4,6 +4,8 @@ import Contract.Cell;
 import Contract.CellFactoryContract;
 import Contract.CellType;
 
+// Singleton factory to create different type of Cells
+
 public class CellFactory implements CellFactoryContract {
     private static CellFactory ourInstance = new CellFactory();
 
@@ -16,41 +18,43 @@ public class CellFactory implements CellFactoryContract {
 
     public Cell createCell(CellType type, int width, int height) {
 
-        Cell cell = null;
+        Cell cell;
         switch (type) {
-            case RIGHT:{
+            case RIGHT:
                 cell = new RightCell(width, height);
-            }
-            case LEFT:{
+                break;
+            case LEFT:
                 cell = new LeftCell(width, height);
-            }
-            case TOP:{
+                break;
+            case TOP:
                 cell = new TopCell(width, height);
-            }
-            case DOWN:{
+            break;
+            case DOWN:
                 cell = new DownCell(width, height);
-            }
+            break;
 
-            case RIGHTDOWN:{
+            case RIGHTDOWN:
                 cell = new RightDownCell(width, height);
-            }
+                break;
 
-            case RIGHTTOP:{
+            case RIGHTTOP:
                 cell = new RightTopCell(width, height);
-            }
+                break;
 
-            case LEFTDOWN:{
+            case LEFTDOWN:
                 cell = new LeftDownCell(width, height);
-            }
+            break;
 
-            case LEFTTOP:{
+            case LEFTTOP:
                 cell = new LeftTopCell(width, height);
-            }
+                break;
 
-            case CENTER:{
+            case CENTER:
                 cell = new CenterCell(width, height);
-            }
+                break;
 
+            default: cell = null;
+                break;
 
 
         }
