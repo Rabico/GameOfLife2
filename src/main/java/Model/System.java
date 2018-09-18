@@ -44,6 +44,7 @@ public class System {
                     }
                 }
            system[i][j] = cellFactory.createCell(type, i,j);
+                system[i][j].setStatus(Status.DEAD);
             }
         }
     }

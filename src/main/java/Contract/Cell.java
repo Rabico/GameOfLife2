@@ -31,11 +31,13 @@ public abstract class Cell {
         if(numberOfAliveCell==2 || numberOfAliveCell==3){
         }else{
             status=Status.DEAD;
+            hasItChanged=true;
         }
 
     }else{
         if(numberOfAliveCell==3){
             status=Status.ALIVE;
+            hasItChanged=true;
         }else{}
     }
 

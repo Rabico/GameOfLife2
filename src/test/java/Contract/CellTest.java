@@ -30,7 +30,7 @@ class CellTest {
         cell.checkStatus();
 
         assertEquals(cell.status,Status.DEAD);
-        assertEquals(0,cell.numberOfAliveCell);
+        assertEquals(cell.hasItChanged,true);
 
     }
 
@@ -44,6 +44,7 @@ class CellTest {
         cell.checkStatus();
 
         assertEquals(cell.status,Status.DEAD);
+        assertEquals(cell.hasItChanged,true);
 
     }
 
@@ -57,6 +58,7 @@ class CellTest {
     cell.checkStatus();
 
     assertEquals(cell.status,Status.ALIVE);
+    assertEquals(cell.hasItChanged,false);
 
     }
 
@@ -70,7 +72,7 @@ class CellTest {
         cell.checkStatus();
 
         assertEquals(cell.status,Status.ALIVE);
-
+        assertEquals(cell.hasItChanged,false);
     }
 
     @Test
@@ -83,7 +85,7 @@ class CellTest {
         cell.checkStatus();
 
         assertEquals(cell.status,Status.DEAD);
-
+        assertEquals(cell.hasItChanged,true);
     }
 
     @Test
@@ -96,6 +98,7 @@ class CellTest {
         cell.checkStatus();
 
         assertEquals(cell.status,Status.DEAD);
+        assertEquals(cell.hasItChanged,true);
 
     }
 
@@ -109,6 +112,7 @@ class CellTest {
         cell.checkStatus();
 
         assertEquals(cell.status,Status.DEAD);
+        assertEquals(cell.hasItChanged,true);
 
     }
 
@@ -122,7 +126,7 @@ class CellTest {
         cell.checkStatus();
 
         assertEquals(cell.status,Status.DEAD);
-
+        assertEquals(cell.hasItChanged,false);
     }
 
     @Test
@@ -135,6 +139,7 @@ class CellTest {
         cell.checkStatus();
 
         assertEquals(cell.status,Status.DEAD);
+        assertEquals(cell.hasItChanged,false);
 
     }
 
@@ -148,6 +153,7 @@ class CellTest {
         cell.checkStatus();
 
         assertEquals(cell.status,Status.DEAD);
+        assertEquals(cell.hasItChanged,false);
 
     }
 
@@ -161,7 +167,7 @@ class CellTest {
         cell.checkStatus();
 
         assertEquals(cell.status,Status.ALIVE);
-
+        assertEquals(cell.hasItChanged,true);
     }
 
 
@@ -175,6 +181,7 @@ class CellTest {
         cell.checkStatus();
 
         assertEquals(cell.status,Status.DEAD);
+        assertEquals(cell.hasItChanged,false);
 
 
     }
@@ -189,6 +196,7 @@ class CellTest {
         cell.checkStatus();
 
         assertEquals(cell.status,Status.DEAD);
+        assertEquals(cell.hasItChanged,false);
 
     }
 
