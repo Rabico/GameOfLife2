@@ -6,7 +6,10 @@ import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
 public class GameOfLife {
+
+
     public static void main(String[] args){
+
 
         int width =10;
         int height = 10;
@@ -14,7 +17,7 @@ public class GameOfLife {
         int widthToBegin = 0;
         Random rand = new Random();
         System system = new System(width,height);
-        Manager manager = new Manager(width,height);
+        Manager manager = new Manager(width, height);
 
         for(int i=0; i<50; i++){
             heightToBegin = rand.nextInt(height);

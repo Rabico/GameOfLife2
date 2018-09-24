@@ -12,7 +12,7 @@ class ManagerTest {
 
     @BeforeEach
     void BeforeTest() {
-        manager = new Manager(3, 3);
+        manager = new Manager(2,2);
     }
 
     @Test

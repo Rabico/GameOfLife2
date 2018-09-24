@@ -2,17 +2,19 @@ package Model;
 
 import Contract.Status;
 
+
+
 public class Manager {
     Status[][] status;
-    private int width=0;
-    private int height = 0;
+    private int mangerWidth;
+    private int managerHeight;
 
     Manager(int width, int height){
-        this.width=width;
-        this.height=height;
-        status = new Status[width][height];
-        for(int i=0; i<width;i++){
-            for(int j = 0; j<height; j++){
+        mangerWidth =width;
+        managerHeight =height;
+        status = new Status[mangerWidth][managerHeight];
+        for(int i = 0; i< mangerWidth; i++){
+            for(int j = 0; j< managerHeight; j++){
                 status[i][j] = Status.DEAD;
             }
         }
@@ -28,14 +30,14 @@ public class Manager {
 
     public void print(){
         java.lang.System.out.print(" ");
-        for(int i =0; i<width*2;i++) {
+        for(int i = 0; i< mangerWidth *2; i++) {
             java.lang.System.out.print("-");
         }
         java.lang.System.out.println(" ");
 
-        for(int j = 0; j<height; j++){
+        for(int j = 0; j< managerHeight; j++){
             java.lang.System.out.print("|");
-            for(int i =0;i<width; i++){
+            for(int i = 0; i< mangerWidth; i++){
                 if(status[i][j]==Status.DEAD){
                     java.lang.System.out.print("O"+" ");
                 }else{
@@ -47,7 +49,7 @@ public class Manager {
         }
 
         java.lang.System.out.print(" ");
-        for(int i =0; i<width*2;i++) {
+        for(int i = 0; i< mangerWidth *2; i++) {
             java.lang.System.out.print("-");
         }
         java.lang.System.out.print(" ");
