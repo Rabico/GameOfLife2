@@ -21,58 +21,53 @@ class CellTest {
 
     public void BeforeTest() {
         manager = mock(Manager.class);
+        cell = new Cell(2, 2, 4, 4);
 
     }
 
+// Test for checkStatus()
 
     @Test
     void checkStatusAliveCellWithZeroAliveNeighbors() {
-        Mockito.doCallRealMethod().when(cell).checkStatus();
 
-        cell = new Cell(2, 2, 3, 3);
         cell.numberOfAliveCell = 0;
         cell.status = Status.ALIVE;
 
         cell.checkStatus();
 
         assertEquals(cell.status, Status.DEAD);
-        assertEquals(cell.hasItChanged, true);
+        assertEquals( true, cell.hasItChanged);
 
     }
 
     @Test
     void checkStatusAliveCellWithOneAliveNeighbor() {
-        Mockito.doCallRealMethod().when(cell).checkStatus();
 
-        cell = new Cell(2, 2, 3, 3);
         cell.numberOfAliveCell = 1;
         cell.status = Status.ALIVE;
 
         cell.checkStatus();
 
         assertEquals(cell.status, Status.DEAD);
-        assertEquals(cell.hasItChanged, true);
+        assertEquals( true, cell.hasItChanged);
 
     }
 
     @Test
     void checkStatusAliveCellWithTwoAliveNeighbors() {
 
-
-        cell = new Cell(2, 2, 3, 3);
         cell.numberOfAliveCell = 2;
         cell.status = Status.ALIVE;
 
         cell.checkStatus();
 
         assertEquals(cell.status, Status.ALIVE);
-        assertEquals(cell.hasItChanged, false);
+        assertEquals( false, cell.hasItChanged);
 
     }
 
     @Test
     void checkStatusAliveCellWithThreeAliveNeighbors() {
-        cell = new Cell(2, 2, 3, 3);
 
         cell.numberOfAliveCell = 3;
         cell.status = Status.ALIVE;
@@ -80,26 +75,23 @@ class CellTest {
         cell.checkStatus();
 
         assertEquals(cell.status, Status.ALIVE);
-        assertEquals(cell.hasItChanged, false);
+        assertEquals( false, cell.hasItChanged);
     }
 
     @Test
     void checkStatusAliveCellWithFourAliveNeighbors() {
 
-        cell = new Cell(2, 2, 3, 3);
         cell.numberOfAliveCell = 4;
         cell.status = Status.ALIVE;
 
         cell.checkStatus();
 
         assertEquals(cell.status, Status.DEAD);
-        assertEquals(cell.hasItChanged, true);
+        assertEquals( true, cell.hasItChanged);
     }
 
     @Test
     void checkStatusAliveCellWithFiveAliveNeighbors() {
-
-        cell = new Cell(2, 2, 3, 3);
 
         cell.numberOfAliveCell = 5;
         cell.status = Status.ALIVE;
@@ -107,13 +99,12 @@ class CellTest {
         cell.checkStatus();
 
         assertEquals(cell.status, Status.DEAD);
-        assertEquals(cell.hasItChanged, true);
+        assertEquals( true, cell.hasItChanged);
 
     }
 
     @Test
     void checkStatusAliveCellWithNineAliveNeighbors() {
-        cell = new Cell(2, 2, 3, 3);
 
         cell.numberOfAliveCell = 9;
         cell.status = Status.ALIVE;
@@ -121,13 +112,12 @@ class CellTest {
         cell.checkStatus();
 
         assertEquals(cell.status, Status.DEAD);
-        assertEquals(cell.hasItChanged, true);
+        assertEquals( true, cell.hasItChanged);
 
     }
 
     @Test
     void checkStatusDeadCellWithZeroAliveNeighbors() {
-        cell = new Cell(2, 2, 3, 3);
 
         cell.numberOfAliveCell = 0;
         cell.status = Status.DEAD;
@@ -135,12 +125,11 @@ class CellTest {
         cell.checkStatus();
 
         assertEquals(cell.status, Status.DEAD);
-        assertEquals(cell.hasItChanged, false);
+        assertEquals( false, cell.hasItChanged);
     }
 
     @Test
     void checkStatusDeadCellWithOneAliveNeighbors() {
-        cell = new Cell(2, 2, 3, 3);
 
         cell.numberOfAliveCell = 1;
         cell.status = Status.DEAD;
@@ -148,13 +137,12 @@ class CellTest {
         cell.checkStatus();
 
         assertEquals(cell.status, Status.DEAD);
-        assertEquals(cell.hasItChanged, false);
+        assertEquals( false, cell.hasItChanged);
 
     }
 
     @Test
     void checkStatusDeadCellWithTwoAliveNeighbors() {
-        cell = new Cell(2, 2, 3, 3);
 
         cell.numberOfAliveCell = 2;
         cell.status = Status.DEAD;
@@ -162,13 +150,12 @@ class CellTest {
         cell.checkStatus();
 
         assertEquals(cell.status, Status.DEAD);
-        assertEquals(cell.hasItChanged, false);
+        assertEquals( false, cell.hasItChanged);
 
     }
 
     @Test
     void checkStatusDeadCellWithThreeAliveNeighbors() {
-        cell = new Cell(2, 2, 3, 3);
 
         cell.numberOfAliveCell = 3;
         cell.status = Status.DEAD;
@@ -176,13 +163,12 @@ class CellTest {
         cell.checkStatus();
 
         assertEquals(cell.status, Status.ALIVE);
-        assertEquals(cell.hasItChanged, true);
+        assertEquals(true, cell.hasItChanged);
     }
 
 
     @Test
     void checkStatusDeadCellWithFourAliveNeighbors() {
-        cell = new Cell(2, 2, 3, 3);
 
         cell.numberOfAliveCell = 4;
         cell.status = Status.DEAD;
@@ -190,14 +176,13 @@ class CellTest {
         cell.checkStatus();
 
         assertEquals(cell.status, Status.DEAD);
-        assertEquals(cell.hasItChanged, false);
+        assertEquals( false, cell.hasItChanged);
 
 
     }
 
     @Test
     void checkStatusDeadCellWithNineAliveNeighbors() {
-        cell = new Cell(2, 2, 3, 3);
 
         cell.numberOfAliveCell = 9;
         cell.status = Status.DEAD;
@@ -205,13 +190,15 @@ class CellTest {
         cell.checkStatus();
 
         assertEquals(cell.status, Status.DEAD);
-        assertEquals(cell.hasItChanged, false);
+        assertEquals( false, cell.hasItChanged);
 
     }
 
+    //Test for counter of neighbors
+
     @Test
     void checkAliveCellWhenAllAreAliveForCenterCell() {
-        cell = new Cell(2, 2, 3, 3);
+
         when(manager.get(1, 1)).thenReturn(Status.ALIVE);
         when(manager.get(2, 1)).thenReturn(Status.ALIVE);
         when(manager.get(1, 2)).thenReturn(Status.ALIVE);
@@ -221,7 +208,7 @@ class CellTest {
         when(manager.get(3, 2)).thenReturn(Status.ALIVE);
         when(manager.get(3, 3)).thenReturn(Status.ALIVE);
 
-        cell.checkAliveCell(manager);
+        cell.CenterCellCount(manager);
 
         assertEquals(8, cell.getNumberOfAliveCell());
 
@@ -229,7 +216,7 @@ class CellTest {
 
     @Test
     void checkAliveCellWhenHalfCellsIsAliveForCenterCell() {
-        cell = new Cell(2, 2, 3, 3);
+
         when(manager.get(1, 1)).thenReturn(Status.ALIVE);
         when(manager.get(2, 1)).thenReturn(Status.ALIVE);
         when(manager.get(1, 2)).thenReturn(Status.ALIVE);
@@ -239,7 +226,7 @@ class CellTest {
         when(manager.get(3, 2)).thenReturn(Status.DEAD);
         when(manager.get(3, 3)).thenReturn(Status.ALIVE);
 
-        cell.checkAliveCell(manager);
+        cell.CenterCellCount(manager);
 
         assertEquals(4, cell.getNumberOfAliveCell());
 
@@ -247,7 +234,7 @@ class CellTest {
 
     @Test
     void checkAliveCellWhenAllAreDeadForCenterCell() {
-        cell = new Cell(2, 2, 3, 3);
+
         when(manager.get(1, 1)).thenReturn(Status.DEAD);
         when(manager.get(2, 1)).thenReturn(Status.DEAD);
         when(manager.get(1, 2)).thenReturn(Status.DEAD);
@@ -257,7 +244,7 @@ class CellTest {
         when(manager.get(3, 2)).thenReturn(Status.DEAD);
         when(manager.get(3, 3)).thenReturn(Status.DEAD);
 
-        cell.checkAliveCell(manager);
+        cell.CenterCellCount(manager);
 
         assertEquals(0, cell.getNumberOfAliveCell());
 
@@ -266,14 +253,14 @@ class CellTest {
 
     @Test
     void checkAliveCellWhenAllAreAliveForDownCell() {
-        cell = new Cell(2, 2, 2, 3);
+
         when(manager.get(1, 1)).thenReturn(Status.ALIVE);
         when(manager.get(1, 2)).thenReturn(Status.ALIVE);
         when(manager.get(2, 1)).thenReturn(Status.ALIVE);
         when(manager.get(3, 1)).thenReturn(Status.ALIVE);
         when(manager.get(3, 2)).thenReturn(Status.ALIVE);
 
-        cell.checkAliveCell(manager);
+        cell.DownCellCount(manager);
 
         assertEquals(5, cell.getNumberOfAliveCell());
 
@@ -281,14 +268,14 @@ class CellTest {
 
     @Test
     void checkAliveCellWhenHalfCellsIsAliveForDownCell() {
-        cell = new Cell(2, 2, 2, 3);
+
         when(manager.get(1, 1)).thenReturn(Status.ALIVE);
         when(manager.get(1, 2)).thenReturn(Status.ALIVE);
         when(manager.get(2, 1)).thenReturn(Status.ALIVE);
         when(manager.get(3, 1)).thenReturn(Status.DEAD);
         when(manager.get(3, 2)).thenReturn(Status.DEAD);
 
-        cell.checkAliveCell(manager);
+        cell.DownCellCount(manager);
 
         assertEquals(3, cell.getNumberOfAliveCell());
 
@@ -296,14 +283,14 @@ class CellTest {
 
     @Test
     void checkAliveCellWhenAllAreDeadForDownCell() {
-        cell = new Cell(2, 2, 2, 3);
+
         when(manager.get(1, 1)).thenReturn(Status.DEAD);
         when(manager.get(1, 2)).thenReturn(Status.DEAD);
         when(manager.get(2, 1)).thenReturn(Status.DEAD);
         when(manager.get(3, 1)).thenReturn(Status.DEAD);
         when(manager.get(3, 2)).thenReturn(Status.DEAD);
 
-        cell.checkAliveCell(manager);
+        cell.DownCellCount(manager);
 
         assertEquals(0, cell.getNumberOfAliveCell());
 
@@ -311,14 +298,14 @@ class CellTest {
 
     @Test
     void checkAliveCellWhenAllAreAliveForLeftCell() {
-        cell = new Cell(2, 0, 3, 3);
-        when(manager.get(1, 1)).thenReturn(Status.ALIVE);
-        when(manager.get(0, 1)).thenReturn(Status.ALIVE);
-        when(manager.get(1, 2)).thenReturn(Status.ALIVE);
-        when(manager.get(0, 3)).thenReturn(Status.ALIVE);
-        when(manager.get(1, 3)).thenReturn(Status.ALIVE);
 
-        cell.checkAliveCell(manager);
+        when(manager.get(3, 1)).thenReturn(Status.ALIVE);
+        when(manager.get(2, 1)).thenReturn(Status.ALIVE);
+        when(manager.get(3, 2)).thenReturn(Status.ALIVE);
+        when(manager.get(2, 3)).thenReturn(Status.ALIVE);
+        when(manager.get(3, 3)).thenReturn(Status.ALIVE);
+
+        cell.LeftCellCount(manager);
 
         assertEquals(5, cell.getNumberOfAliveCell());
 
@@ -326,13 +313,13 @@ class CellTest {
 
     @Test
     void checkAliveCellWhenHalfCellsIsAliveForLeftCell() {
-        cell = new Cell(2, 0, 3, 3);
-        when(manager.get(1, 1)).thenReturn(Status.ALIVE);
-        when(manager.get(0, 1)).thenReturn(Status.ALIVE);
-        when(manager.get(1, 2)).thenReturn(Status.ALIVE);
-        when(manager.get(0, 3)).thenReturn(Status.DEAD);
-        when(manager.get(1, 3)).thenReturn(Status.DEAD);
-        cell.checkAliveCell(manager);
+
+        when(manager.get(3, 1)).thenReturn(Status.ALIVE);
+        when(manager.get(2, 1)).thenReturn(Status.ALIVE);
+        when(manager.get(3, 2)).thenReturn(Status.ALIVE);
+        when(manager.get(2, 3)).thenReturn(Status.DEAD);
+        when(manager.get(3, 3)).thenReturn(Status.DEAD);
+        cell.LeftCellCount(manager);
 
         assertEquals(3, cell.getNumberOfAliveCell());
 
@@ -340,13 +327,13 @@ class CellTest {
 
     @Test
     void checkAliveCellWhenAllAreDeadForLeftCell() {
-        cell = new Cell(2, 0, 3, 3);
-        when(manager.get(1, 1)).thenReturn(Status.DEAD);
-        when(manager.get(0, 1)).thenReturn(Status.DEAD);
-        when(manager.get(1, 2)).thenReturn(Status.DEAD);
-        when(manager.get(0, 3)).thenReturn(Status.DEAD);
-        when(manager.get(1, 3)).thenReturn(Status.DEAD);
-        cell.checkAliveCell(manager);
+
+        when(manager.get(3, 1)).thenReturn(Status.DEAD);
+        when(manager.get(2, 1)).thenReturn(Status.DEAD);
+        when(manager.get(3, 2)).thenReturn(Status.DEAD);
+        when(manager.get(2, 3)).thenReturn(Status.DEAD);
+        when(manager.get(3, 3)).thenReturn(Status.DEAD);
+        cell.LeftCellCount(manager);
 
         assertEquals(0, cell.getNumberOfAliveCell());
 
@@ -354,14 +341,14 @@ class CellTest {
 
     @Test
     void checkAliveCellWhenAllAreAliveForLeftDownCell() {
-        cell = new Cell(2, 0, 3, 3);
+
         when(manager.get(2, 1)).thenReturn(Status.ALIVE);
         when(manager.get(3, 1)).thenReturn(Status.ALIVE);
         when(manager.get(3, 2)).thenReturn(Status.ALIVE);
 
         cell.LeftDownCellCount(manager);
 
-        assertEquals(3, cell.getNumberOfAliveCell());
+        assertEquals(3,cell.getNumberOfAliveCell() );
 
     }
 
@@ -373,7 +360,7 @@ class CellTest {
         when(manager.get(3, 2)).thenReturn(Status.DEAD);
         cell.LeftDownCellCount(manager);
 
-        assertEquals(2, cell.getNumberOfAliveCell());
+        assertEquals(2,cell.getNumberOfAliveCell() );
 
     }
 
@@ -542,7 +529,7 @@ class CellTest {
 
     @Test
     void checkAliveCellWhenHalfCellsIsAliveForTopCell() {
-        cell = new Cell(2, 2, 3, 3);
+
         when(manager.get(1,3)).thenReturn(Status.ALIVE);
         when(manager.get(1,2)).thenReturn(Status.ALIVE);
         when(manager.get(2,3)).thenReturn(Status.ALIVE);
@@ -565,7 +552,7 @@ class CellTest {
         when(manager.get(3,2)).thenReturn(Status.DEAD);
 
         cell.TopCellCount(manager);
-        
+
         assertEquals(0, cell.getNumberOfAliveCell());
 
     }
